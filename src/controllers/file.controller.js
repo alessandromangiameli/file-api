@@ -13,7 +13,7 @@ function load(req, res, next) {
 
 	jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
 		if(err) {
-			res.send('token expired');
+			res.json(err);
 			return;
 		}
 
