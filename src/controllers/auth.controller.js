@@ -1,7 +1,5 @@
 import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
-
-dotenv.config();
+import config from './../config/app.config';
 
 let payload = {
 	test : 'test'
@@ -12,7 +10,7 @@ let options = {
 }
 
 function token(req, res, token) {
-	res.send(jwt.sign(payload, process.env.SECRET_KEY, options));
+	res.send(jwt.sign(payload, config.jwtSecretKey, options));
 }
 
 export default { token }
